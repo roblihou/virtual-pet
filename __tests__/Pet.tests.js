@@ -9,5 +9,6 @@ test ('Pet creates a new pet object with a name property', () => {
 test ('growUp adds 1 year to pets age', () => {
   const Fido = new Pet('Fido')
   Fido.growUp();
-  expect(fido.age).toEqual(1);
+  Fido.growUp();
+  expect(Fido.age).toEqual(2);
 });
