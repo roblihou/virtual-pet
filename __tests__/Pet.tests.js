@@ -24,4 +24,22 @@ test ('growUp decreases fitness by 3', () => {
   expect(Fido.fitness).toEqual(7);
 });
 
+test ('walk increases fitness by 4', () => {
+  const Fido = new Pet('Fido')
+  Fido.growUp();
+  Fido.growUp();
+  Fido.walk();
+  expect(Fido.fitness).toEqual(8);
+});
+
+test ('walk increases fitness by 4', () => {
+  const Fido = new Pet('Fido')
+  Fido.growUp();
+  Fido.growUp();
+  Fido.walk();
+  Fido.walk();
+  expect(Fido.fitness).toEqual(10);
+});
+
+
 
