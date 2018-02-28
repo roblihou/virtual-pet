@@ -56,4 +56,66 @@ test ('feed decraeses hunger by 3 but hunger never goes below 0', () => {
 });
 
 
+test ('checkUp returns I need a walk if fitness is 3 or less', () => {
+  const Fido = new Pet('Fido')
+  Fido.fitness = 2;
+  //let checkUpResult = Fido.checkUp();
+  expect(Fido.checkUp()).toEqual('I need a walk');
+});
 
+test ('checkUp returns I am hungry if hunger is 5 or more', () => {
+  const Fido = new Pet('Fido')
+  Fido.fitness = 4;
+  Fido.hunger = 5;
+  //let checkUpResult = Fido.checkUp();
+  expect(Fido.checkUp()).toEqual('I am hungry');
+});
+
+test ('checkUp returns I am hungry and I need a walk if hunger is 5 or more and fitness is 3 or less', () => {
+  const Fido = new Pet('Fido')
+  Fido.fitness = 3;
+  Fido.hunger = 6;
+  //let checkUpResult = Fido.checkUp();
+  expect(Fido.checkUp()).toEqual('I am hungry AND I need a walk');
+});
+
+test ('checkUp returns I feel great if hunger is less than 5 and fitness is more than 3', () => {
+  const Fido = new Pet('Fido')
+  Fido.fitness = 4;
+  Fido.hunger = 2;
+  //let checkUpResult = Fido.checkUp();
+  expect(Fido.checkUp()).toEqual('I feel great!');
+});
+
+test ('isAlive returns false if fitness is 0 or less', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 0;
+  Fido.age = 10;
+  Fido.hunger = 5;
+  expect(Fido.isAlive()).toEqual(false);
+});
+
+test ('isAlive returns false if hunger is more than 10', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 5;
+  Fido.age = 10;
+  Fido.hunger = 11;
+  expect(Fido.isAlive()).toEqual(false);
+});
+
+test ('isAlive returns false if age is more than 30', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 5;
+  Fido.age = 31;
+  Fido.hunger = 5;
+  expect(Fido.isAlive()).toEqual(false);
+});
+
+
+test ('isAlive returns true if age is 30 or less and hunger is 10 or less and fitness is more than 0', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 5;
+  Fido.age = 29;
+  Fido.hunger = 5;
+  expect(Fido.isAlive()).toEqual(true);
+});
