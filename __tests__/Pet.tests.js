@@ -119,3 +119,39 @@ test ('isAlive returns true if age is 30 or less and hunger is 10 or less and fi
   Fido.hunger = 5;
   expect(Fido.isAlive()).toEqual(true);
 });
+
+test ('growUp throws an error message to tell is that our pet is dead if isAlive status is false', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 0;
+  expect(Fido.growUp()).toEqual('Your pet is no longer alive :(');
+});
+
+test ('walk throws an error message to tell is that our pet is dead', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 0;
+  expect( () => Fido.walk()).toThrowError('Your pet is no longer alive :(');
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
+test ('feed throws an error message to tell is that our pet is dead if isAlive status is false', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 0;
+  expect(Fido.feed()).toEqual('Your pet is no longer alive :(');
+});
+
+test ('checkUp tells us that our pet is dead if isAlive status is false', () => {
+  const Fido = new Pet('Fido');
+  Fido.fitness = 0;
+  expect(Fido.checkUp()).toEqual('Your pet is no longer alive :(');
+});
