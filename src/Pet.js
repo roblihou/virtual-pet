@@ -12,7 +12,12 @@ Pet.prototype = {
     this.fitness -= 3;
   },
   walk: function () {
-    this.fitness = Math.min(10, this.fitness += 4);
+    const MAXIMUM_FITNESS = 10;
+    this.fitness = Math.min(MAXIMUM_FITNESS, this.fitness += 4);
+  },
+  feed: function () {
+    const MIN_HUNGER = 0;
+    this.hunger = Math.max(MIN_HUNGER, this.hunger -= 3);
   }
 }
 

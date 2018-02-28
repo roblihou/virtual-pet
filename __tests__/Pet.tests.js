@@ -41,5 +41,19 @@ test ('walk increases fitness by 4', () => {
   expect(Fido.fitness).toEqual(10);
 });
 
+test ('feed decraeses hunger by 3', () => {
+  const Fido = new Pet('Fido')
+  Fido.hunger = 5;
+  Fido.feed();
+  expect(Fido.hunger).toEqual(2);
+});
+
+test ('feed decraeses hunger by 3 but hunger never goes below 0', () => {
+  const Fido = new Pet('Fido')
+  Fido.hunger = 2;
+  Fido.feed();
+  expect(Fido.hunger).toEqual(0);
+});
+
 
 
